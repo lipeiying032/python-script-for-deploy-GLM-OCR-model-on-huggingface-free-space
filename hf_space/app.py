@@ -51,13 +51,17 @@ def load_model():
         from transformers import AutoProcessor, AutoModelForImageTextToText
 
         print("[MODEL] Downloading/Loading AutoProcessor...")
-        _processor = AutoProcessor.from_pretrained(MODEL_NAME)
+        _processor = AutoProcessor.from_pretrained(
+            MODEL_NAME,
+            trust_remote_code=True
+        )
 
         print("[MODEL] Downloading/Loading AutoModelForImageTextToText...")
         _model = AutoModelForImageTextToText.from_pretrained(
             pretrained_model_name_or_path=MODEL_NAME,
             torch_dtype="auto",
             device_map="auto",
+            trust_remote_code=True,
         )
         device = next(_model.parameters()).device
         print(f"[MODEL] Model loaded OK on device: {device}")
