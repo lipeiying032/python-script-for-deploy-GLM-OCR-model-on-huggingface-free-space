@@ -1,6 +1,6 @@
 # GLM-OCR HuggingFace Space Dependencies
 # Core ML
-transformers>=4.51.0
+transformers==4.46.3
 torch>=2.1.0
 accelerate>=0.27.0
 
